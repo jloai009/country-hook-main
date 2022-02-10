@@ -24,7 +24,7 @@ const useCountry = (name) => {
         .get(`https://restcountries.com/v2/name/${name}?fullText=true`)
         .then((response) => {
           const country = {
-            found: response.data[0] ? true : false, 
+            found: Boolean(response.data[0]), 
             data: response.data[0]
           }
           setCountry(country)
